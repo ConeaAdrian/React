@@ -4,14 +4,16 @@ class SearchBar extends React.Component {
   state = { term: '' };
 
   onInputChange = event => {
-    this.setState({ term: event.target.value });
+    this.setState({ term: event.target.value });   //permite schimbare
   };
 
   onFormSubmit = event => {
-    event.preventDefault();
+    event.preventDefault();   //nu permite la pagine refresh
 
     // TODO: Make sure we call
     // callback from parent component
+
+    this.props.onFormSubmit(this.state.term); 
   };
 
   render() {
@@ -23,7 +25,7 @@ class SearchBar extends React.Component {
             <input
               type="text"
               value={this.state.term}
-              onChange={this.onInputChange}
+              onChange={this.onInputChange}   //schimbare in Search bar
             />
           </div>
         </form>
